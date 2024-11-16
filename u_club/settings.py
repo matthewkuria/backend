@@ -15,7 +15,9 @@ SECRET_KEY = 'django-insecure-b6ga5e8ah1!=t985p=07%rh!_-oz-xr5%b+7@g6j@b*iol#olf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -41,6 +43,7 @@ INSTALLED_APPS = [
     'shop',
     'fans',
     'payments',
+    'membership'
 ]
 # Authentication for django jwt
 REST_FRAMEWORK = {
@@ -87,7 +90,7 @@ MIDDLEWARE = [
 FRONTEND_URL = "http://localhost:3000"
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # For Next.js frontend during development
-    "http://localhost:3001",  # For Next.js frontend during development
+    "http://localhost:3001",
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True  # Allow cookies to be sent with requests
@@ -119,6 +122,8 @@ WSGI_APPLICATION = 'u_club.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+
+
 
 DATABASES = {
     'default': {
@@ -163,6 +168,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
 MEDIA_URL = '/images/'
 STATICFILES_DIRS = [
@@ -173,3 +179,15 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# settings.py
+
+# Email backend configuration (for development, you can use console or file backend)
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Replace with your email provider's SMTP host
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'mathewkwachira@gmail.com'  # Replace with your email
+EMAIL_HOST_PASSWORD = 'wcwq twye qraf ijmj'  # Replace with your email password (or app password)
+
